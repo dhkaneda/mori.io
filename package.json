@@ -1,0 +1,11 @@
+{
+  "name": "mor.io",
+  "version": "1.0.0",
+  "description": "Death is your life coach.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dhkaneda",
+  "license": "MIT"
+}
