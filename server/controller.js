@@ -25,14 +25,14 @@ const createUser = (req, res) => {
   const user = new User(options);
 
   user.save()
-    .then(() => res.send())
+    .then(() => User.find({ email }))
+    .then((userdoc) => res.send(userdoc))
     .catch((err) => console.error(err));
 };
 
 const getUser = (req, res) => {
-  const { email } = req.body;
-  // const user = new User();
-  User.find({ email })
+  const { _id } = req.body;
+  User.find({ _id })
     .then((userdoc) => res.send(userdoc))
     .catch((err) => res.send(err));
 };
