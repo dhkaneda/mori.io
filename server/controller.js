@@ -9,10 +9,10 @@ const createUser = (req, res) => {
     password,
     age,
     sex,
-    country,
+    location,
   } = req.body;
 
-  const lifeExpectancy = _.find(countryStats, _.matchesProperty('name', country));
+  const lifeExpectancy = _.find(countryStats, _.matchesProperty('name', location));
 
   const options = {
     username,
@@ -22,13 +22,22 @@ const createUser = (req, res) => {
       + 24 * 60 * 60 * 1000 * 365 * (lifeExpectancy[sex] - age)),
   };
 
-  const newUser = new User(options);
+  const user = new User(options);
 
-  newUser.save()
+  user.save()
     .then(() => res.send())
     .catch((err) => console.error(err));
 };
 
+const getUser = (req, res) => {
+  const { email } = req.body;
+  // const user = new User();
+  User.find({ email })
+    .then((userdoc) => res.send(userdoc))
+    .catch((err) => res.send(err));
+};
+
 module.exports = {
   createUser,
+  getUser,
 };
