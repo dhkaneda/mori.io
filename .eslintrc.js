@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     "no-console": "off",
     "arrow-body-style" : "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "react/prop-types" : "off"
   },
 };

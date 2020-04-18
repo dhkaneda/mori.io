@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div>
-    Home
+    <h1>memento mori.</h1>
+    <h3>Remember you will die.</h3>
+    <Link to="/live">Live.</Link>
   </div>
 );
 
