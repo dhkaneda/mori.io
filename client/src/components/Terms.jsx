@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import _ from 'lodash';
 
@@ -8,7 +10,7 @@ const Terms = ({ display, handleNext }) => {
   switch (display) {
     case 0:
       termDisplay = (
-        <div>
+        <div onClick={handleNext}>
           <p>We haven&apos;t spoken yet.</p>
           <p>How unfortunate.</p>
           <br />
@@ -25,8 +27,14 @@ const Terms = ({ display, handleNext }) => {
         <div>
           <p>I have many forms.</p>
           <p>How would you like me to appear to you?</p>
-          <p>He, or She?</p>
-          <br />
+          <form onSubmit={handleNext}>
+            <select>
+              <option value="male">He</option>
+              <option value="female">She</option>
+            </select>
+            <br />
+            <input type="submit" value="I&apos;m sure" />
+          </form>
         </div>
       );
       break;
@@ -35,7 +43,7 @@ const Terms = ({ display, handleNext }) => {
         <div>
           <p>Excellent.</p>
           <p>Now please tell me about yoursef.</p>
-          <form>
+          <form onSubmit={handleNext}>
             <label htmlFor="email">
               Email:
               <input type="email" name="email" id="email" />
@@ -48,6 +56,7 @@ const Terms = ({ display, handleNext }) => {
               Password:
               <input type="text" name="password" id="password" />
             </label>
+            <input type="submit" value="I&apos;m sure" />
           </form>
           <br />
         </div>
@@ -57,16 +66,18 @@ const Terms = ({ display, handleNext }) => {
       termDisplay = (
         <div>
           <p>I can see that you are currently</p>
-          <form>
+          <form onSubmit={handleNext}>
             <select>
               {
-              range.map((num) => <option value={`${num}`}>{num}</option>)
+              range.map((num) => <option key={`${num}`} value={`${num}`}>{num}</option>)
               }
             </select>
             <p>and residing in</p>
             <select>
               <option value="United States">United States</option>
             </select>
+            <br />
+            <input type="submit" value="Correct" />
           </form>
         </div>
       );
@@ -77,7 +88,6 @@ const Terms = ({ display, handleNext }) => {
   return (
     <div>
       {termDisplay}
-      <button type="button" onClick={handleNext}>Next</button>
     </div>
   );
 };

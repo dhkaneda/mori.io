@@ -11,7 +11,8 @@ class Live extends Component {
     this.handleNext = this.handleNext.bind(this);
   }
 
-  handleNext() {
+  handleNext(event) {
+    event.preventDefault();
     let { currentStep } = this.state;
     this.setState({ currentStep: currentStep += 1 });
   }
