@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/morio', { useNewUrlParser: true, use
 // Schemas
 const userSchema = mongoose.Schema({
   username: String,
-  email: String,
+  email: { type: String, unique: true },
   password: String,
   deathday: Date,
   contracts: [],
@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
 const contractSchema = mongoose.Schema({
   isOpen: Boolean,
   success: Boolean,
-  description: String,
+  description: { type: String, unique: true },
   deadline: Date,
   createdAt: Date,
   collateral: String,
@@ -28,21 +28,7 @@ const contractSchema = mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 const Contract = mongoose.model('Contract', contractSchema);
 
-
-// Operations
-const save = () => {
-  return document.save();
-};
-
-const find = (model, options) => {
-  return model.find(options)
-    .then((docs) => docs)
-    .catch((err) => console.error(err));
-};
-
 module.exports = {
   User,
   Contract,
-  save,
-  find,
 };
