@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
+require('../database');
 
 const app = express();
 const port = 4444;
