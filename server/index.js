@@ -1,14 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
-const { User, LifeExpectancy } = require('../database');
+const _ = require('lodash');
+const { User, find } = require('../database');
+const countryStats = require('../database/seed/lifeExpectancy');
 require('../database');
 
 const app = express();
 const port = 4444;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(bodyParser.json());
 
-app.post('/api/users', (res, req) => {
+app.post('/api/users', (req, res) => {
   const {
     username,
     email,
@@ -18,23 +22,19 @@ app.post('/api/users', (res, req) => {
     country,
   } = req.body;
 
-  const lifeExpectancy = LifeExpectancy.find({ name: country })
-    .then((stat) => {
-      if (sex !== 'other') {
-        return stat.sex;
-      }
-      return stat.average;
-    });
+  const lifeExpectancy = _.find(countryStats, _.matchesProperty('name', country));
 
   const options = {
     username,
     email,
     password,
-    deathday: new Date(new Date().getTime() - 24 * 60 * 60 * 1000 * (lifeExpectancy - age)),
+    deathday: new Date(new Date().getTime() + 24 * 60 * 60 * 1000 * 365 * (lifeExpectancy[sex] - age)),
   };
 
   const newUser = new User(options);
-  newUser.save();
+  newUser.save()
+    .then(() => res.send())
+    .catch((err) => console.error(err));
 });
 
 app.listen(port, () => {
