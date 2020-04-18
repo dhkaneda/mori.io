@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const { User } = require('../database');
+const { User, Contract } = require('../database');
 const countryStats = require('./utils/lifeExpectancy');
 
 const createUser = (req, res) => {
@@ -37,7 +37,22 @@ const getUser = (req, res) => {
     .catch((err) => res.send(err));
 };
 
+const createContract = (req, res) => {
+  const { _id } = req.body;
+  const options = req.body.contract;
+
+  User.find({ _id })
+    .then((user) => {
+      const contract = new Contract(options);
+      user[0].contracts.push(contract);
+      return user[0].save();
+    })
+    .then(() => res.send())
+    .catch((err) => res.send(err));
+};
+
 module.exports = {
   createUser,
+  createContract,
   getUser,
 };

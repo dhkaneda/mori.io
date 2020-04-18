@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { createUser, getUser } = require('./controller');
+const {
+  createUser,
+  createContract,
+  getUser,
+} = require('./controller');
 require('../database');
 
 const app = express();
@@ -11,6 +15,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 
 app.post('/api/users', createUser);
+app.post('/api/contracts', createContract);
 app.get('/api/users', getUser);
 
 app.listen(port, () => {
