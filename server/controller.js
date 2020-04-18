@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const { User } = require('../database');
-const countryStats = require('../database/seed/lifeExpectancy');
+const countryStats = require('./utils/lifeExpectancy');
 
 const createUser = (req, res) => {
   const {
