@@ -63,7 +63,7 @@ All properties are **Required** except ...
 | `password` | `string` | 8 character minimum used for authentication |
 | `age` | `number` | user's age |
 | `sex` | `string` | user's sex |
-| `country` | `string` | user's country of residence |
+| `location` | `string` | user's country of residence |
 
 #### Example Input Data
 ````
@@ -73,7 +73,7 @@ All properties are **Required** except ...
   password: 'ineedanewjob!',
   age: 25,
   sex: 'Male'
-  country: 'United States'
+  location: 'United States'
 }
 ````
 #### Responses
