@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -d --watch",
-    "start": "nodemon \"./server\""
+    "start": "nodemon \"./server\"",
+    "seed": "node \"./database/seed.js\""
   },
   "author": "",
   "license": "ISC",

@@ -25,7 +25,6 @@ const contractSchema = mongoose.Schema({
 });
 
 const lifeExpectancySchema = mongoose.Schema({
-  type: String,
   name: String,
   average: Number,
   male: Number,
@@ -35,7 +34,7 @@ const lifeExpectancySchema = mongoose.Schema({
 // Models
 const User = mongoose.model('User', userSchema);
 const Contract = mongoose.model('Contract', contractSchema);
-const LifeExpectancy = mongoose.model('Life Expectancy', lifeExpectancySchema);
+const LifeExpectancy = mongoose.model('LifeExpectancy', lifeExpectancySchema);
 
 
 // Operations
@@ -55,4 +54,4 @@ module.exports = {
   LifeExpectancy,
   save,
   find,
-}
+};

@@ -34,6 +34,7 @@
         - Facebook account deletion
         - Instagram account deletion
     - Life (Actual) // Figuratively of course
+      - displays user's currrent location
 - Display deadline, counter.
 
 - Display dark/witty motivational quotes
@@ -60,7 +61,7 @@ All properties are **Required** except ...
 | `username` | `string` | username for display purposes|
 | `email` | `string` | unique email used for log in |
 | `password` | `string` | 8 character minimum used for authentication |
-| `deathday` | `date` | an estimate of user's approximate natural deathday |
+| `age` | `number` | user's age |
 
 #### Example Input Data
 ````
@@ -68,6 +69,7 @@ All properties are **Required** except ...
   username: 'Grim', 
   email: 'r34per@gmail.com',
   password: 'ineedanewjob!',
+  age: 25,
 }
 ````
 #### Responses
