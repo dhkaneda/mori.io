@@ -12,11 +12,17 @@ class Live extends Component {
       email: '',
       username: '',
       password: '',
+      deathday: null,
     };
 
     this.handleNext = this.handleNext.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleCredentialSubmit = this.handleCredentialSubmit.bind(this);
+    this.assignDeathday = this.assignDeathday.bind(this);
+  }
+
+  assignDeathday(deathday) {
+    this.setState({ deathday });
   }
 
   handleNext(event) {
@@ -56,12 +62,15 @@ class Live extends Component {
     const {
       currentStep,
       moriSex,
+      deathday,
       email,
     } = this.state;
 
     return (
       <div>
         <Terms
+          assignDeathday={this.assignDeathday}
+          deathday={deathday}
           email={email}
           moriSex={moriSex}
           display={currentStep}

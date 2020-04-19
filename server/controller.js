@@ -30,24 +30,24 @@ const updateUser = (req, res) => {
       user.deathday = deathday;
       return user.save();
     })
-    .then(() => res.send())
+    .then(() => res.send({ deathday }))
     .catch((err) => res.send(err));
 };
 
 const getUser = (req, res) => {
-  const { _id } = req.body;
-  User.find({ _id })
+  const { email } = req.body;
+  User.find({ email })
     .then((userdoc) => res.send(userdoc))
     .catch((err) => res.send(err));
 };
 
 const createContract = (req, res) => {
-  const { _id } = req.body;
+  const { email } = req.body;
   const options = req.body.contract;
 
-  User.find({ _id })
+  User.find({ email })
     .then((users) => {
-      const user = users[0]
+      const user = users[0];
       const contract = new Contract(options);
       user.contracts.push(contract);
       return user.save();

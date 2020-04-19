@@ -30,7 +30,7 @@ class Attributes extends Component {
   handleAttributeSubmit(event) {
     event.preventDefault();
     const { age, location, sex } = this.state;
-    const { email, handleNext } = this.props;
+    const { email, handleNext, assignDeathday } = this.props;
 
     // FIX PATCH
     $.ajax({
@@ -47,6 +47,7 @@ class Attributes extends Component {
         if (res.name && res.name === 'MongoError') {
           alert('There was an error updating the user');
         } else {
+          assignDeathday(res.deathday);
           handleNext(event);
         }
       });
