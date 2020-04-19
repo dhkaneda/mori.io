@@ -26,6 +26,7 @@ class Countdown extends Component {
 
   render() {
     const { timeLeft } = this.state;
+    const { handleNext } = this.props;
 
     return (
       <div>
@@ -33,6 +34,7 @@ class Countdown extends Component {
         <h1>{timeLeft}</h1>
         <p>seconds left.</p>
         <p>Now, let&apos;s make good use of it.</p>
+        <button type="button" onClick={handleNext}>Okay</button>
       </div>
     );
   }

@@ -52,7 +52,12 @@ const Terms = ({
       );
       break;
     case 4:
-      termDisplay = <Countdown deathday={deathday} />;
+      termDisplay = (
+        <Countdown
+          deathday={deathday}
+          handleNext={handleNext}
+        />
+      );
       break;
     default:
       termDisplay = <div>Default</div>;

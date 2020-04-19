@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Terms from './Terms';
+import Goals from './Goals';
 
 class Live extends Component {
   constructor(props) {
@@ -66,8 +67,12 @@ class Live extends Component {
       email,
     } = this.state;
 
-    return (
-      <div>
+    let page;
+
+    if (currentStep === 5) {
+      page = <Goals />;
+    } else {
+      page = (
         <Terms
           assignDeathday={this.assignDeathday}
           deathday={deathday}
@@ -78,6 +83,12 @@ class Live extends Component {
           handleInputChange={this.handleInputChange}
           handleCredentialSubmit={this.handleCredentialSubmit}
         />
+      );
+    }
+
+    return (
+      <div>
+        {page}
       </div>
     );
   }
