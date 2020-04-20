@@ -19,15 +19,16 @@ class Contracts extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleContractSubmit = this.handleContractSubmit.bind(this);
     this.handleSeenTut = this.handleSeenTut.bind(this);
+    this.getContracts = this.getContracts.bind(this);
   }
 
   componentDidMount() {
+    this.getContracts();
+  }
+
+  getContracts() {
     const { email } = this.props;
-    $.ajax({
-      method: 'GET',
-      url: '/api/users',
-      data: { email },
-    })
+    $.get('/api/users', { email })
       .then((user) => {
         if (user.contracts && user.contracts.length > 0) {
           const { contracts } = user;
@@ -77,6 +78,9 @@ class Contracts extends Component {
         },
       },
     })
+      .then(() => {
+        this.getContracts();
+      })
       .catch((err) => console.error(err));
   }
 

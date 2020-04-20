@@ -19,14 +19,19 @@ const AddContract = ({
           onChange={handleInputChange}
         />
         <br />
-        <input
-          type="text"
+        <select
           name="collateral"
-          defaultValue={collateral}
+          id="collateral"
+          value={collateral}
           onChange={handleInputChange}
-        />
+        >
+          <option value="vice">My vices</option>
+          <option value="monetary">My fortune</option>
+          <option value="digital">My avatar</option>
+          <option value="life">My life</option>
+        </select>
         <br />
-        <input
+        {/* <input
           type="text"
           name="service"
           defaultValue={service}
@@ -39,7 +44,7 @@ const AddContract = ({
           defaultValue={amount}
           onChange={handleInputChange}
         />
-        <br />
+        <br /> */}
         <input type="submit" value="test" />
       </form>
     </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Contract = () => {
+const Contract = ({ contract }) => {
   return (
     <div>
-      Contract
+      <p>{contract.description}</p>
     </div>
   );
-}
+};
 
 export default Contract;
