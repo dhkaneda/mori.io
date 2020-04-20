@@ -28,6 +28,7 @@ class AddContract extends Component {
     const {
       hasSeenTut,
       walkthroughFinish,
+      handleContractSubmit,
       handleInputChange,
       description,
       collateral,
@@ -39,6 +40,13 @@ class AddContract extends Component {
     let select;
     let details;
     let prompt;
+    let button;
+
+    if (!hasSeenTut) {
+      button = <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>;
+    } else {
+      button = <button type="button" onClick={handleContractSubmit}>I&apos;m sure</button>;
+    }
 
     if (currentStep === 1) {
       let prompt2;
@@ -97,7 +105,7 @@ class AddContract extends Component {
             defaultValue={amount}
             onChange={handleInputChange}
           />
-          <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
+          {button}
         </div>
       );
     } else {
@@ -133,7 +141,7 @@ class AddContract extends Component {
               <option value="hulu">Hulu</option>
               <option value="amazon">Amazon</option>
             </select>
-            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
+            {button}
           </div>
         );
       }
@@ -178,7 +186,7 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
-            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
+            {button}
           </div>
         );
         break;
@@ -194,7 +202,7 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
-            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
+            {button}
           </div>
         );
         break;
