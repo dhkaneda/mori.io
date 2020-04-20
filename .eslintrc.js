@@ -32,5 +32,6 @@ module.exports = {
     "react/no-array-index-key": "off",
     "no-alert": "off",
     "no-underscore-dangle": "off",
+    "consistent-return": "off",
   },
 };

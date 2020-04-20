@@ -23,6 +23,10 @@ class Contracts extends Component {
   }
 
   componentDidMount() {
+    const { hasSeenTut } = this.props;
+    if (hasSeenTut) {
+      this.setState({ hasSeenTut: true });
+    }
     this.getContracts();
   }
 

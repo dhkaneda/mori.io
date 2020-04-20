@@ -22,11 +22,14 @@ class Login extends Component {
 
   handleLogin(event) {
     event.preventDefault();
+    const { handleEmailChange } = this.props;
+    const { email } = this.state;
     const options = this.state;
     console.log(options);
     $.get('/api/login', options)
       .then((res) => {
         if (res === true) {
+          handleEmailChange(email);
           this.setState({ redirect: true });
         } else if (res === false) {
           return alert('Your login details are incorrect.');
@@ -38,7 +41,7 @@ class Login extends Component {
   renderRedirect() {
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/live" />;
+      return <Redirect to="/contracts" />;
     }
   }
 
