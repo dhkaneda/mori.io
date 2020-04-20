@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Terms from './Terms';
-import Goals from './Goals';
+import Contracts from './Contracts';
 
 class Live extends Component {
   constructor(props) {
@@ -55,7 +55,6 @@ class Live extends Component {
   }
 
   handleInputChange({ target }) {
-    console.log('change');
     this.setState({ [target.name]: target.value });
   }
 
@@ -70,7 +69,7 @@ class Live extends Component {
     let page;
 
     if (currentStep === 5) {
-      page = <Goals />;
+      page = <Contracts email={email} />;
     } else {
       page = (
         <Terms

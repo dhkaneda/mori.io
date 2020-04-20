@@ -4,6 +4,7 @@ class Countdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      intervalId: null,
       timeLeft: 0,
     };
 
@@ -11,8 +12,14 @@ class Countdown extends Component {
   }
 
   componentDidMount() {
+    const intervalId = setInterval(this.timer, 1000);
     this.timer();
-    setInterval(this.timer, 1000);
+    this.setState({ intervalId });
+  }
+
+  componentWillUnmount() {
+    const { intervalId } = this.state;
+    clearInterval(intervalId);
   }
 
   timer() {
