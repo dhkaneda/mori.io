@@ -41,6 +41,9 @@ class Contracts extends Component {
   }
 
   handleInputChange({ target }) {
+    if (target.name === 'collateral') {
+      this.setState({ service: '' });
+    }
     this.setState({ [target.name]: target.value });
   }
 
@@ -113,6 +116,7 @@ class Contracts extends Component {
       contractDisplay = (
         <div>
           <AddContract
+            hasSeenTut={hasSeenTut}
             handleInputChange={this.handleInputChange}
             handleContractSubmit={this.handleContractSubmit}
             description={description}

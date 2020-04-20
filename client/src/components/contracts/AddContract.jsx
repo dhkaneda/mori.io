@@ -26,9 +26,9 @@ class AddContract extends Component {
   render() {
     const { currentStep, isChecked } = this.state;
     const {
+      hasSeenTut,
       walkthroughFinish,
       handleInputChange,
-      handleContractSubmit,
       description,
       collateral,
       service,
@@ -38,10 +38,22 @@ class AddContract extends Component {
     let options;
     let select;
     let details;
+    let prompt;
 
     if (currentStep === 1) {
+      let prompt2;
+
+      if (!hasSeenTut) {
+        prompt2 = (
+          <p>You&apos;ll have to place something of value on collateral.</p>
+        );
+      } else {
+        prompt2 = null;
+      }
+
       select = (
         <div>
+          {prompt2}
           <select
             name="collateral"
             id="collateral"
@@ -66,14 +78,26 @@ class AddContract extends Component {
 
     const monetaryServices = ['paypal', 'cashapp', 'apple'];
     if (monetaryServices.indexOf(service) !== -1) {
+      let prompt3;
+
+      if (!hasSeenTut) {
+        prompt3 = (
+          <p>You&apos;ll elect to forfeit your entire bet should you fail. Now, how much?</p>
+        );
+      } else {
+        prompt3 = null;
+      }
+
       details = (
         <div>
+          {prompt3}
           <input
             type="number"
             name="amount"
             defaultValue={amount}
             onChange={handleInputChange}
           />
+          <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
         </div>
       );
     } else {
@@ -81,9 +105,20 @@ class AddContract extends Component {
     }
 
     switch (collateral) {
-      case 'vice':
+      case 'vice': {
+        let prompt4;
+
+        if (!hasSeenTut) {
+          prompt4 = (
+            <p>You&apos;ll choose to lock yourself out of these services for an extended time.</p>
+          );
+        } else {
+          prompt4 = null;
+        }
+
         options = (
           <div>
+            {prompt4}
             <select
               name="service"
               id="service"
@@ -98,8 +133,10 @@ class AddContract extends Component {
               <option value="hulu">Hulu</option>
               <option value="amazon">Amazon</option>
             </select>
+            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
           </div>
         );
+      }
         break;
       case 'monetary':
         options = (
@@ -132,6 +169,16 @@ class AddContract extends Component {
               <option value="instagram">Instagram</option>
               <option value="youtube">Youtube</option>
             </select>
+            <label htmlFor="verify">
+              <input
+                type="checkbox"
+                id="verify"
+                checked={isChecked}
+                onChange={this.toggleCheck}
+              />
+              I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
+            </label>
+            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
           </div>
         );
         break;
@@ -147,6 +194,7 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
+            <button type="button" onClick={walkthroughFinish}>I&apos;m sure</button>
           </div>
         );
         break;
@@ -154,20 +202,31 @@ class AddContract extends Component {
         options = null;
     }
 
+    if (!hasSeenTut) {
+      prompt = (
+        <div>
+          <p> Now, what would you like to accomplish?</p>
+          <p>For all we know, tomorrow could be your last.</p>
+        </div>
+      );
+    } else {
+      prompt = null;
+    }
+
     return (
       <div>
-        <form onSubmit={walkthroughFinish || handleContractSubmit}>
-          <input
-            type="text"
-            name="description"
-            defaultValue={description}
-            onChange={handleInputChange}
-          />
-          {select}
-          {options}
-          {details}
-          <input type="submit" value="submit contract" />
-        </form>
+        {prompt}
+        {/* <form onSubmit={handleContractSubmit}> */}
+        <input
+          type="text"
+          name="description"
+          defaultValue={description}
+          onChange={handleInputChange}
+        />
+        {select}
+        {options}
+        {details}
+        {/* </form> */}
       </div>
     );
   }
