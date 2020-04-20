@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AddContract = ({
+  walkthroughFinish,
   handleInputChange,
   handleContractSubmit,
   description,
@@ -10,7 +11,7 @@ const AddContract = ({
 }) => {
   return (
     <div>
-      <form onSubmit={handleContractSubmit}>
+      <form onSubmit={walkthroughFinish || handleContractSubmit}>
         <input
           type="text"
           name="description"

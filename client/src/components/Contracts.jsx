@@ -11,9 +11,9 @@ class Contracts extends Component {
       hasSeenTut: false,
       contracts: [],
       description: '',
-      collateral: null,
-      service: null,
-      amount: null,
+      collateral: '',
+      service: '',
+      amount: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -45,7 +45,13 @@ class Contracts extends Component {
 
   handleSeenTut(event) {
     event.preventDefault();
-    this.setState({ hasSeenTut: true });
+    this.setState({
+      hasSeenTut: true,
+      description: '',
+      collateral: '',
+      service: '',
+      amount: '',
+    });
   }
 
   handleContractSubmit(event) {
@@ -90,6 +96,12 @@ class Contracts extends Component {
       contractDisplay = (
         <Walkthrough
           handleSeenTut={this.handleSeenTut}
+          handleInputChange={this.handleInputChange}
+          handleContractSubmit={this.handleContractSubmit}
+          description={description}
+          collateral={collateral}
+          service={service}
+          amount={amount}
         />
       );
     } else {
