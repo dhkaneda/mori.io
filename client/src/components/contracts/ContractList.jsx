@@ -5,7 +5,7 @@ const ContractList = ({ contracts }) => {
   return (
     <div>
       <p>Open Contracts</p>
-      {contracts.map((contract, i) => <Contract key={i} contract={contract} />)}
+      {contracts.map((contract) => <Contract key={contract._id} contract={contract} />)}
     </div>
   );
 };

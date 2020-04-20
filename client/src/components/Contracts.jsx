@@ -13,7 +13,7 @@ class Contracts extends Component {
       description: '',
       collateral: '',
       service: '',
-      amount: '',
+      amount: 0,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -99,6 +99,7 @@ class Contracts extends Component {
     if (!hasSeenTut) {
       contractDisplay = (
         <Walkthrough
+          hasSeenTut={hasSeenTut}
           handleSeenTut={this.handleSeenTut}
           handleInputChange={this.handleInputChange}
           handleContractSubmit={this.handleContractSubmit}
