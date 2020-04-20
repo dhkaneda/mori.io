@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 const Register = ({
   handleCredentialSubmit,
@@ -19,7 +18,11 @@ const Register = ({
       </label>
       <label htmlFor="password">
         Password:
-        <input type="text" name="password" id="password" onChange={handleInputChange} />
+        <input type="password" name="password" id="password" onChange={handleInputChange} />
+      </label>
+      <label htmlFor="password">
+        Password (verify):
+        <input type="password" name="password2" id="password2" onChange={handleInputChange} />
       </label>
       <input type="submit" value="I&apos;m sure" />
     </form>

@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
   username: String,
   email: { type: String, unique: true },
   password: String,
+  salt: String,
   deathday: Date,
   contracts: [],
 });

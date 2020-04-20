@@ -13,6 +13,7 @@ class Live extends Component {
       email: '',
       username: '',
       password: '',
+      password2: '',
       deathday: null,
     };
 
@@ -38,8 +39,12 @@ class Live extends Component {
       email,
       username,
       password,
+      password2,
     } = this.state;
-    if (password.length < 8) {
+
+    if (password !== password2) {
+      alert('Please verify that your passwords match');
+    } else if (password.length < 8) {
       alert('Your password must be at least 8 characters');
     } else {
       const user = { email, username, password };

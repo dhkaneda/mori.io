@@ -5,7 +5,7 @@ const Home = () => (
   <div>
     <h1>memento mori.</h1>
     <h3>Remember you will die.</h3>
-    <Link to="/live">Live.</Link>
+    <Link to="/entry">Live.</Link>
   </div>
 );
 

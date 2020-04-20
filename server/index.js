@@ -5,6 +5,7 @@ const {
   createUser,
   updateUser,
   createContract,
+  attemptLogin,
   getUser,
   getStats,
 } = require('./controller');
@@ -22,6 +23,7 @@ app.patch('/api/users', updateUser);
 app.post('/api/contracts', createContract);
 app.get('/api/users', getUser);
 app.get('/api/stats', getStats);
+app.get('/api/login', attemptLogin);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
