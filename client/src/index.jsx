@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Entry from './components/Entry';
 import Live from './components/Live';
 import Login from './components/Login';
+import 'react-datepicker/dist/react-datepicker.css';
 import './styles/normalize.css';
 import './styles/skeleton.css';
 

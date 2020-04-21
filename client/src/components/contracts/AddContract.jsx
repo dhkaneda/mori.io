@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
 
 class AddContract extends Component {
   constructor(props) {
@@ -26,7 +27,9 @@ class AddContract extends Component {
   render() {
     const { currentStep, isChecked } = this.state;
     const {
+      deadline,
       hasSeenTut,
+      setDeadline,
       walkthroughFinish,
       handleContractSubmit,
       handleInputChange,
@@ -105,6 +108,14 @@ class AddContract extends Component {
             defaultValue={amount}
             onChange={handleInputChange}
           />
+          <DatePicker
+            selected={deadline}
+            onChange={(date) => setDeadline(date)}
+            showTimeSelect
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="MMMM d, yyyy h:mm aa"
+          />
           {button}
         </div>
       );
@@ -141,6 +152,14 @@ class AddContract extends Component {
               <option value="hulu">Hulu</option>
               <option value="amazon">Amazon</option>
             </select>
+            <DatePicker
+              selected={deadline}
+              onChange={(date) => setDeadline(date)}
+              showTimeSelect
+              timeIntervals={15}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+            />
             {button}
           </div>
         );
@@ -186,6 +205,14 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
+            <DatePicker
+              selected={deadline}
+              onChange={(date) => setDeadline(date)}
+              showTimeSelect
+              timeIntervals={15}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+            />
             {button}
           </div>
         );
@@ -202,6 +229,14 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
+            <DatePicker
+              selected={deadline}
+              onChange={(date) => setDeadline(date)}
+              showTimeSelect
+              timeIntervals={15}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa"
+            />
             {button}
           </div>
         );

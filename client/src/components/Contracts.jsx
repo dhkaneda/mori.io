@@ -14,12 +14,14 @@ class Contracts extends Component {
       collateral: '',
       service: '',
       amount: 0,
+      deadline: new Date(),
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleContractSubmit = this.handleContractSubmit.bind(this);
     this.handleSeenTut = this.handleSeenTut.bind(this);
     this.getContracts = this.getContracts.bind(this);
+    this.setDeadline = this.setDeadline.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,10 @@ class Contracts extends Component {
       this.setState({ hasSeenTut: true });
     }
     this.getContracts();
+  }
+
+  setDeadline(deadline) {
+    this.setState({ deadline });
   }
 
   getContracts() {
@@ -66,6 +72,7 @@ class Contracts extends Component {
     event.preventDefault();
     const { email } = this.props;
     const {
+      deadline,
       description,
       collateral,
       service,
@@ -78,6 +85,7 @@ class Contracts extends Component {
       data: {
         email,
         contract: {
+          deadline,
           description,
           collateral,
           service,
@@ -93,6 +101,7 @@ class Contracts extends Component {
 
   render() {
     const {
+      deadline,
       hasSeenTut,
       description,
       collateral,
@@ -106,7 +115,9 @@ class Contracts extends Component {
     if (!hasSeenTut) {
       contractDisplay = (
         <Walkthrough
+          deadline={deadline}
           hasSeenTut={hasSeenTut}
+          setDeadline={this.setDeadline}
           handleSeenTut={this.handleSeenTut}
           handleInputChange={this.handleInputChange}
           handleContractSubmit={this.handleContractSubmit}
@@ -120,7 +131,9 @@ class Contracts extends Component {
       contractDisplay = (
         <div>
           <AddContract
+            deadline={deadline}
             hasSeenTut={hasSeenTut}
+            setDeadline={this.setDeadline}
             handleInputChange={this.handleInputChange}
             handleContractSubmit={this.handleContractSubmit}
             description={description}

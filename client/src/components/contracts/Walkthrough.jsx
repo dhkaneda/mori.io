@@ -16,7 +16,9 @@ class Walkthrough extends Component {
 
   render() {
     const {
+      deadline,
       hasSeenTut,
+      setDeadline,
       handleInputChange,
       description,
       collateral,
@@ -28,7 +30,9 @@ class Walkthrough extends Component {
       <div>
         <p>Walkthrough</p>
         <AddContract
+          deadline={deadline}
           handleSeenTut={hasSeenTut}
+          setDeadline={setDeadline}
           walkthroughFinish={this.walkthroughFinish}
           handleInputChange={handleInputChange}
           description={description}
