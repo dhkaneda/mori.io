@@ -9,7 +9,7 @@ const Intro = ({ handleNext }) => (
     <br />
     <p>I have many names.</p>
     <p>You may call me...</p>
-    <p>Mori.</p>
+    <h2>Mori.</h2>
   </div>
 );
 
