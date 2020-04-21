@@ -31,7 +31,6 @@ class Login extends Component {
         if (res === true) {
           $.get('/api/users', { email })
             .then((user) => {
-              console.log(user);
               handleDeathday(user.deathday);
             });
           handleEmailChange(email);

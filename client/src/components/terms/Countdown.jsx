@@ -69,7 +69,7 @@ class Countdown extends Component {
 
   render() {
     const { change, selected } = this.state;
-    const { handleNext, hasSeenTut } = this.props;
+    const { handleNext, hasSeenTut, propClass, selectClass } = this.props;
     let unit;
     let prompt;
     const display = this.state[selected];
@@ -78,7 +78,7 @@ class Countdown extends Component {
       unit = <span id="unit-select" onClick={this.setChange}>{selected}</span>;
     } else {
       unit = (
-        <select name="selected" value={selected} onChange={this.setSelected}>
+        <select className={selectClass} name="selected" value={selected} onChange={this.setSelected}>
           <option value="seconds">seconds</option>
           <option value="minutes">minutes</option>
           <option value="hours">hours</option>
@@ -106,7 +106,7 @@ class Countdown extends Component {
     } else {
       prompt = (
         <div>
-          <p>
+          <p className={propClass}>
             <span>{display}</span>
             <span>{' '}</span>
             <span>{unit}</span>
