@@ -9,6 +9,8 @@ import Login from './components/Login';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles/normalize.css';
 import './styles/skeleton.css';
+import './styles/custom.css';
+
 
 class Routing extends Component {
   constructor(props) {

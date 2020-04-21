@@ -108,6 +108,7 @@ class AddContract extends Component {
             defaultValue={amount}
             onChange={handleInputChange}
           />
+          <br />
           <DatePicker
             selected={deadline}
             onChange={(date) => setDeadline(date)}
@@ -116,6 +117,7 @@ class AddContract extends Component {
             timeCaption="time"
             dateFormat="MMMM d, yyyy h:mm aa"
           />
+          <br />
           {button}
         </div>
       );
@@ -152,6 +154,7 @@ class AddContract extends Component {
               <option value="hulu">Hulu</option>
               <option value="amazon">Amazon</option>
             </select>
+            <br />
             <DatePicker
               selected={deadline}
               onChange={(date) => setDeadline(date)}
@@ -160,6 +163,7 @@ class AddContract extends Component {
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
             />
+            <br />
             {button}
           </div>
         );
@@ -205,6 +209,7 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
+            <br />
             <DatePicker
               selected={deadline}
               onChange={(date) => setDeadline(date)}
@@ -213,6 +218,7 @@ class AddContract extends Component {
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
             />
+            <br />
             {button}
           </div>
         );
@@ -229,6 +235,7 @@ class AddContract extends Component {
               />
               I will forfeit my placed collateral in the event I fail to fullfill my end of the contract.
             </label>
+            <br />
             <DatePicker
               selected={deadline}
               onChange={(date) => setDeadline(date)}
@@ -237,6 +244,7 @@ class AddContract extends Component {
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
             />
+            <br />
             {button}
           </div>
         );
@@ -259,17 +267,22 @@ class AddContract extends Component {
     return (
       <div>
         {prompt}
-        {/* <form onSubmit={handleContractSubmit}> */}
-        <input
-          type="text"
-          name="description"
-          defaultValue={description}
-          onChange={handleInputChange}
-        />
+        <label htmlFor="newcontract">
+          Before I die, I will...
+          <br />
+          <input
+            id="newcontract"
+            type="text"
+            name="description"
+            defaultValue={description}
+            onChange={handleInputChange}
+          />
+        </label>
         {select}
         {options}
         {details}
-        {/* </form> */}
+        <br />
+        <br />
       </div>
     );
   }

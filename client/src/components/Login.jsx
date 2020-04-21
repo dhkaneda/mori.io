@@ -49,11 +49,12 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
+      <div className="section">
         {this.renderRedirect()}
         <form onSubmit={this.handleLogin}>
           <label htmlFor="email">
-            Email:
+            Email
+            <br />
             <input
               id="email"
               type="email"
@@ -63,7 +64,8 @@ class Login extends Component {
             />
           </label>
           <label htmlFor="password">
-            Password:
+            Password
+            <br />
             <input
               type="password"
               name="password"

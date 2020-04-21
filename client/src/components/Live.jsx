@@ -91,7 +91,7 @@ class Live extends Component {
     }
 
     return (
-      <div>
+      <div className="section">
         {page}
       </div>
     );

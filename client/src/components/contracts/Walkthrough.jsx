@@ -28,7 +28,6 @@ class Walkthrough extends Component {
 
     return (
       <div>
-        <p>Walkthrough</p>
         <AddContract
           deadline={deadline}
           handleSeenTut={hasSeenTut}
