@@ -15,7 +15,7 @@ const Contract = ({ contract }) => {
 
   return (
     <div className="contract-container">
-      <p className="desc">{contract.description}</p>
+      <p className="desc collateral">{contract.description}</p>
       <Countdown selectClass="contractSelect" propClass="contractCountdown" deathday={contract.deadline} hasSeenTut={true} />
       <p className="desc collateral">{contract.collateral}</p>
       {service}
