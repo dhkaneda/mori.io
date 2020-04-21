@@ -25,7 +25,7 @@ h2 {
 p {
   font-style: italic;
   font-size: 24px;
-  line-height: 16px;
+  line-height: 20px;
 
 
   -webkit-animation: fadein 2s;
@@ -33,6 +33,18 @@ p {
    -ms-animation: fadein 2s;
     -o-animation: fadein 2s;
        animation: fadein 2s;
+}
+
+label {
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+   -ms-animation: fadein 2s;
+    -o-animation: fadein 2s;
+       animation: fadein 2s;
+}
+
+#bold{
+  font-weight: bold;
 }
 
 #verify {
