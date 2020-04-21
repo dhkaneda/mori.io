@@ -8,7 +8,7 @@ class Live extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: 0,
+      currentStep: -1,
       moriSex: 'male',
       email: '',
       username: '',
@@ -74,7 +74,7 @@ class Live extends Component {
     let page;
 
     if (currentStep === 5) {
-      page = <Contracts email={email} />;
+      page = <Contracts email={email} deathday={deathday} />;
     } else {
       page = (
         <Terms

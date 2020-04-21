@@ -18,17 +18,23 @@ class Routing extends Component {
     this.state = {
       email: '',
       hasSeenTut: false,
+      deathday: null,
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleDeathday = this.handleDeathday.bind(this);
   }
 
   handleEmailChange(email) {
     this.setState({ email, hasSeenTut: true });
   }
 
+  handleDeathday(deathday) {
+    this.setState({ deathday });
+  }
+
   render() {
-    const { email, hasSeenTut } = this.state;
+    const { email, hasSeenTut, deathday } = this.state;
 
     return (
       <Router>
@@ -36,8 +42,8 @@ class Routing extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/entry" component={Entry} />
           <Route path="/live" component={Live} />
-          <Route path="/contracts" render={() => <Contracts email={email} hasSeenTut={hasSeenTut} />} />
-          <Route path="/login" render={() => <Login handleEmailChange={this.handleEmailChange} />} />
+          <Route path="/contracts" render={() => <Contracts email={email} hasSeenTut={hasSeenTut} deathday={deathday} />} />
+          <Route path="/login" render={() => <Login handleEmailChange={this.handleEmailChange} handleDeathday={this.handleDeathday} />} />
         </div>
       </Router>
     );

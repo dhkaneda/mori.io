@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import Intro from './terms/Intro';
+import Intro2 from './terms/Intro2';
 import SelectSex from './terms/SelectSex';
 import Register from './terms/Register';
 import Attributes from './terms/Attributes';
@@ -20,8 +21,11 @@ const Terms = ({
   let termDisplay;
 
   switch (display) {
-    case 0:
+    case -1:
       termDisplay = <Intro handleNext={handleNext} />;
+      break;
+    case 0:
+      termDisplay = <Intro2 handleNext={handleNext} />;
       break;
     case 1:
       termDisplay = (

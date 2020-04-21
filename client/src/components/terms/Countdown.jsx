@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 
 class Countdown extends Component {
@@ -68,8 +69,9 @@ class Countdown extends Component {
 
   render() {
     const { change, selected } = this.state;
-    const { handleNext } = this.props;
+    const { handleNext, hasSeenTut } = this.props;
     let unit;
+    let prompt;
     const display = this.state[selected];
 
     if (!change) {
@@ -88,16 +90,34 @@ class Countdown extends Component {
       );
     }
 
+    if (!hasSeenTut) {
+      prompt = (
+        <div>
+          <p>It looks like you have about</p>
+          <h1>{display}</h1>
+          <p>
+            {unit}
+            <span> left.</span>
+          </p>
+          <p>Now, let&apos;s make good use of it.</p>
+          <button type="button" onClick={handleNext}>Okay</button>
+        </div>
+      );
+    } else {
+      prompt = (
+        <div>
+          <p>
+            <span>{display}</span>
+            <span>{' '}</span>
+            <span>{unit}</span>
+          </p>
+        </div>
+      );
+    }
+
     return (
       <div>
-        <p>It looks like you have about</p>
-        <h1>{display}</h1>
-        <p>
-          {unit}
-          <span> left.</span>
-        </p>
-        <p>Now, let&apos;s make good use of it.</p>
-        <button type="button" onClick={handleNext}>Okay</button>
+        {prompt}
       </div>
     );
   }

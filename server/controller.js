@@ -55,6 +55,7 @@ const updateUser = (req, res) => {
 
 const getUser = (req, res) => {
   const { email } = req.query;
+
   User.find({ email })
     .then((userdocs) => {
       res.send(userdocs[0]);

@@ -3,6 +3,7 @@ import $ from 'jquery';
 import Walkthrough from './contracts/Walkthrough';
 import AddContract from './contracts/AddContract';
 import ContractList from './contracts/ContractList';
+import Countdown from './terms/Countdown';
 
 class Contracts extends Component {
   constructor(props) {
@@ -109,6 +110,7 @@ class Contracts extends Component {
       amount,
       contracts,
     } = this.state;
+    const { deathday } = this.props;
 
     let contractDisplay;
 
@@ -130,6 +132,7 @@ class Contracts extends Component {
     } else {
       contractDisplay = (
         <div>
+          <Countdown hasSeenTut={hasSeenTut} deathday={deathday} />
           <AddContract
             deadline={deadline}
             hasSeenTut={hasSeenTut}
