@@ -1,6 +1,6 @@
 {
   "name": "mor.io",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Death is your life coach.",
   "main": "index.js",
   "scripts": {

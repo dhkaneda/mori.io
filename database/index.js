@@ -4,6 +4,10 @@ mongoose.connect('mongodb://localhost:27017/morio', { useNewUrlParser: true, use
   .then(() => console.log('Success! Connected to MongoDB!'))
   .catch((error) => console.error(error));
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
 // Schemas
 const userSchema = mongoose.Schema({
   username: String,
