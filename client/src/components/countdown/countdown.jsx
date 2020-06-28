@@ -1,10 +1,10 @@
 import React from 'react';
 import DeathdayInput from './deathdayInput';
-import CountdownDigits from './countdownDigits';
+import DeathdayCountdown from './deathdayCountdown';
 
 const Countdown = () => (
   <div>
-    <CountdownDigits />
+    <DeathdayCountdown />
     <DeathdayInput />
   </div>
 );
