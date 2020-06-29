@@ -9,6 +9,7 @@ const DeathdayInput = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(typeof determineDeathday(sex, age));
     localStorage.setItem('deathday', determineDeathday(sex, age));
   };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CountdownDigits = ({ targetDate }) => {
+const CountdownDigitsContainer = ({ targetDate }) => {
   const [secondsLeft, setSecondsLeft] = useState('loading');
 
   const findSeconds = () => {
@@ -16,10 +16,10 @@ const CountdownDigits = ({ targetDate }) => {
   });
 
   return (
-    <h1>
+    <p>
       {secondsLeft}
-    </h1>
+    </p>
   );
 };
 
-export default CountdownDigits;
+export default CountdownDigitsContainer;

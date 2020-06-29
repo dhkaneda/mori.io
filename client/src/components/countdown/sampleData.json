@@ -1,0 +1,21 @@
+[
+  {
+    "id": 0,
+    "goal": "Pick up gift",
+    "collateral": {
+      "type": "credits",
+      "amount": "100"
+    },
+    "targetDate": "Wed Jun 11 2081 14:49:41 GMT-0700 (Pacific Daylight Time)",
+    "created": "Sun Jun 28 2020 09:18:22 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "id": 1,
+    "goal": "Wash car",
+    "collateral": {
+      "type": "socialMedia"
+    },
+    "targetDate": "Wed Jun 12 2081 14:49:41 GMT-0700 (Pacific Daylight Time)",
+    "created": "Sun Jun 28 2020 09:18:22 GMT-0700 (Pacific Daylight Time)"
+  }
+]
