@@ -4,8 +4,8 @@ import ContractContext from './contractContext';
 
 const ContractAdd = () => {
   const { contracts, setContracts } = useContext(ContractContext);
-  const [goal, setGoal] = useState('');
-  const [collateral, setCollateral] = useState('credits');
+  const [goal, setGoal] = useState('New goal');
+  const [collateral, setCollateral] = useState('');
   const [amount, setAmount] = useState(0);
   const [targetDate, setTargetDate] = useState(new Date());
 
@@ -35,6 +35,12 @@ const ContractAdd = () => {
 
     // persistence
     localStorage.setItem('contracts', JSON.stringify(updatedContracts));
+
+    // reset Inputs
+    setGoal('New goal');
+    setCollateral('Select Collateral');
+    setAmount(0);
+    setTargetDate(new Date());
   };
 
   // change select options here
@@ -54,7 +60,7 @@ const ContractAdd = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          defaultValue="Goal"
+          value={goal}
           onChange={({ target }) => {
             setGoal(target.value);
           }}
@@ -67,6 +73,7 @@ const ContractAdd = () => {
             setCollateral(target.value);
           }}
         >
+          <option value="invalid">select collateral</option>
           <option value="credits">credits</option>
           <option value="avatar">avatar</option>
           <option value="life">life</option>
