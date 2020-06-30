@@ -32,5 +32,6 @@ module.exports = {
   },
   devServer: {
     contentBase: './client/dist',
+    port: 4445,
   },
 };

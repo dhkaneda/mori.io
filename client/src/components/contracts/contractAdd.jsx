@@ -32,6 +32,8 @@ const ContractAdd = () => {
 
     const updatedContracts = [...contracts, contractToAdd];
     setContracts(updatedContracts);
+
+    // persistence
     localStorage.setItem('contracts', JSON.stringify(updatedContracts));
   };
 
