@@ -3,18 +3,18 @@
 
 > Mor.io is a radicalized to do app in which you can place your source of entertainment, your money, and even your digital life on collateral! You can get more done with your life by allowing what you hold dear to be help hostage from you until your achieve your goals. Make a quick contract with **Death** as he will be your life coach! 
 
-## Table of Contents
+<!-- ## Table of Contents
 
 1. [Stack](#stack)
 1. [Features](#features)
-1. [API](#API)
+1. [API](#API) -->
 
 
 ## Stack:
-- Frontend: React with Skeleton.css, built with Webpack and Babel
-- Backend: Node.js | Express | MongoDB | Mongoose
+- Frontend: React with Hooks, built with Webpack and Babel
+- Backend: Node.js | Express
 
-## Features:
+<!-- ## Features:
 - Life expectancy calculator, based on average
   - Tells user roughly how many seconds, minutes, hours, days, or years they have left
 - Open a contract
@@ -38,10 +38,10 @@
 - Display deadline, counter.
 
 - Display dark/witty motivational quotes
-  - First time login quote "Remember that you will die. The time is now."
+  - First time login quote "Remember that you will die. The time is now." -->
 
 
-## API
+<!-- ## API
 
 ### >> **CREATE new user**
 ````
@@ -185,4 +185,4 @@ Data:
 ### Update contract details
 ### Delete contract
 ### Update user details
-### Delete user
+### Delete user -->
