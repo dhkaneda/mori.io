@@ -6,6 +6,7 @@ const ContractAdd = () => {
   const { contracts, setContracts } = useContext(ContractContext);
   const [goal, setGoal] = useState('');
   const [collateral, setCollateral] = useState('credits');
+  const [amount, setAmount] = useState(0);
   const [targetDate, setTargetDate] = useState(new Date());
 
 
@@ -24,6 +25,7 @@ const ContractAdd = () => {
       id,
       goal,
       collateral,
+      amount,
       targetDate,
       created: new Date(),
     };
@@ -32,6 +34,18 @@ const ContractAdd = () => {
     setContracts(updatedContracts);
     localStorage.setItem('contracts', JSON.stringify(updatedContracts));
   };
+
+  // change select options here
+  const selectOption = (
+    <input
+      type="number"
+      name="amount"
+      min="0"
+      onChange={({ target }) => {
+        setAmount(target.value);
+      }}
+    />
+  );
 
   return (
     <div>
@@ -55,6 +69,8 @@ const ContractAdd = () => {
           <option value="avatar">avatar</option>
           <option value="life">life</option>
         </select>
+        { /* change line below for different selections based on previous options */ }
+        {collateral === 'credits' ? selectOption : null}
         <DatePicker
           selected={targetDate}
           onChange={(date) => setTargetDate(date)}
