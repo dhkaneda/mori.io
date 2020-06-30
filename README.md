@@ -14,6 +14,9 @@
 - Frontend: React with Hooks, built with Webpack and Babel
 - Backend: Node.js | Express
 
+## Status:
+- Currently rebuilding
+
 <!-- ## Features:
 - Life expectancy calculator, based on average
   - Tells user roughly how many seconds, minutes, hours, days, or years they have left
