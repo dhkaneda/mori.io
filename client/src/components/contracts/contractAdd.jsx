@@ -4,12 +4,14 @@ import ContractContext from './contractContext';
 
 const ContractAdd = () => {
   const { contracts, setContracts } = useContext(ContractContext);
+
+  // STATE HOOKS
   const [goal, setGoal] = useState('New goal');
   const [collateral, setCollateral] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [collateralOption, setCollateralOption] = useState(0);
   const [targetDate, setTargetDate] = useState(new Date());
 
-
+  // HELPERS
   const handleSubmit = (event) => {
     event.preventDefault();
     // check for first existing contracts
@@ -24,8 +26,10 @@ const ContractAdd = () => {
     const contractToAdd = {
       id,
       goal,
-      collateral,
-      amount,
+      collateral: {
+        type: collateral,
+        collateralOption,
+      },
       targetDate,
       created: new Date(),
     };
@@ -39,18 +43,19 @@ const ContractAdd = () => {
     // reset Inputs
     setGoal('New goal');
     setCollateral('Select Collateral');
-    setAmount(0);
+    setCollateralOption(0);
     setTargetDate(new Date());
   };
 
-  // change select options here
+  // CONDITIONAL ELEMENTS
+  // // change select options here
   const selectOption = (
     <input
       type="number"
-      name="amount"
+      name="collateralOption"
       min="0"
       onChange={({ target }) => {
-        setAmount(target.value);
+        setCollateralOption(target.value);
       }}
     />
   );
