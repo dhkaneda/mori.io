@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import CountdownDigits from './countdownDigits';
+import DeathdayContext from './deathdayContext';
 
 
 const DeathdayCountdown = () => {
-  const [deathday, setDeathday] = useState('');
+  const { deathday, setDeathday } = useContext(DeathdayContext);
 
   // continually checks for updated deathday in case input is changed
   useEffect(() => {

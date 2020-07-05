@@ -79,8 +79,8 @@ const ContractAdd = () => {
           }}
         >
           <option value="invalid">select collateral</option>
-          <option value="credits">credits</option>
-          <option value="avatar">avatar</option>
+          <option value="credits">$$$</option>
+          {/* <option value="avatar">avatar</option> */}
           <option value="life">life</option>
         </select>
         { /* change line below for different selections based on previous options */ }

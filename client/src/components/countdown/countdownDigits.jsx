@@ -5,7 +5,13 @@ const CountdownDigitsContainer = ({ targetDate }) => {
 
   const findSeconds = () => {
     const now = new Date();
-    return (Math.floor((targetDate - now.getTime()) / 1000));
+    const secondsNow = Math.floor((targetDate - now.getTime()) / 1000);
+
+    if (secondsNow === 0) {
+      alert('OVER');
+    } else {
+      return secondsNow;
+    }
   };
 
   // starts countdown automatically
@@ -15,6 +21,13 @@ const CountdownDigitsContainer = ({ targetDate }) => {
     }, 1000);
   });
 
+  if (secondsLeft < 1) {
+    return (
+      <p>
+        Forfeit.
+      </p>
+    );
+  }
   return (
     <p>
       {secondsLeft}
