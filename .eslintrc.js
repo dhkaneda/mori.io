@@ -34,5 +34,6 @@ module.exports = {
     "no-underscore-dangle": "off",
     "consistent-return": "off",
     "no-param-reassign": "off",
+    "jsx-a11y/control-has-associated-label": "off",
   },
 };

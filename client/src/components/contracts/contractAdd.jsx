@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import ContractContext from './contractContext';
 
 const ContractAdd = () => {
-  const { contracts, setContracts } = useContext(ContractContext);
+  const { contracts, setContracts, setAddContractDisplay } = useContext(ContractContext);
 
   // STATE HOOKS
   const [goal, setGoal] = useState('New goal');
@@ -39,12 +39,12 @@ const ContractAdd = () => {
 
     // persistence
     localStorage.setItem('contracts', JSON.stringify(updatedContracts));
-
-    // reset Inputs
-    setGoal('New goal');
-    setCollateral('Select Collateral');
-    setCollateralOption(0);
-    setTargetDate(new Date());
+    setAddContractDisplay(false);
+    // // reset Inputs
+    // setGoal('New goal');
+    // setCollateral('Select Collateral');
+    // setCollateralOption(0);
+    // setTargetDate(new Date());
   };
 
   // CONDITIONAL ELEMENTS
@@ -94,6 +94,7 @@ const ContractAdd = () => {
           dateFormat="MMMM d, yyyy h:mm aa"
         />
         <input type="submit" value="Submit" />
+        <button type="button" onClick={() => setAddContractDisplay(false)}>x</button>
       </form>
     </div>
   );

@@ -5,7 +5,7 @@ import determineDeathday from './helpers/lifeExpectancy';
 import DeathdayContext from './deathdayContext';
 
 const DeathdayInput = () => {
-  const { setDeathday } = useContext(DeathdayContext);
+  const { setDeathday, setInputDisplay } = useContext(DeathdayContext);
   const [sex, setSex] = useState('male');
   const [age, setAge] = useState(0);
 
@@ -18,6 +18,7 @@ const DeathdayInput = () => {
     localStorage.setItem('age', age);
     localStorage.setItem('deathday', deathday);
     setDeathday(deathday);
+    setInputDisplay(false);
   };
 
   const handleChange = ({ target }) => {

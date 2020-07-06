@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from 'react';
 // import sampleData from '../countdown/sampleData.json';
 import ContractItem from './contractItem';
 import ContractContext from './contractContext';
+import ContractAdd from './contractAdd';
 
 const ContractList = () => {
-  const { contracts, setContracts } = useContext(ContractContext);
+  const { contracts, setContracts, addContractDisplay, setAddContractDisplay } = useContext(ContractContext);
 
   useEffect(() => {
     const existingContracts = JSON.parse(localStorage.getItem('contracts'));
@@ -20,6 +21,7 @@ const ContractList = () => {
       {contracts && contracts.map((contract) => {
         return <ContractItem key={contract.id} contract={contract} />;
       })}
+      {addContractDisplay ? <ContractAdd /> : <button type="button" value="+" onClick={() => setAddContractDisplay(true)}>+</button>}
     </div>
   );
 };
