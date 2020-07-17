@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import DatePicker from 'react-datepicker';
-import ContractContext from './contractContext';
+import ContextContract from './contextContract';
 
 const ContractAdd = () => {
-  const { contracts, setContracts, setAddContractDisplay } = useContext(ContractContext);
+  const { contracts, setContracts, setAddContractDisplay } = useContext(ContextContract);
 
   // STATE HOOKS
   const [goal, setGoal] = useState('New goal');

@@ -1,13 +1,13 @@
-const usStats = {
+const avgLifeExpectancyInUS = {
   name: 'United States',
   average: 79,
   male: 76,
   female: 81,
 };
 
-const determineDeathday = (sex, age) => {
+const determineDeathDayInMilliseconds = (sex, age) => {
   return new Date(new Date().getTime()
-  + 24 * 60 * 60 * 1000 * 365 * (usStats[sex] - age));
+  + 24 * 60 * 60 * 1000 * 365 * (avgLifeExpectancyInUS[sex] - age));
 };
 
-export default determineDeathday;
+export default determineDeathDayInMilliseconds;
