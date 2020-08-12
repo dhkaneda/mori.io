@@ -10,7 +10,6 @@ import DeathdayContext from './components/countdown/deathdayContext';
 import ContextContract from './components/contracts/contextContract';
 import Countdown from './components/countdown/countdown';
 import ContractList from './components/contracts/contractList';
-// import ContractAdd from './components/contracts/contractAdd';
 
 const App = () => {
   const [contracts, setContracts] = useState([]);
@@ -41,7 +40,6 @@ const App = () => {
           setAddContractDisplay,
         }}
         >
-          {/* <ContractAdd /> */}
           <ContractList />
         </ContextContract.Provider>
       </DeathdayContext.Provider>
