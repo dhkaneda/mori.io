@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 // COMPONENTS
 import DeathdayContext from './components/countdown/deathdayContext';
 import ContextContract from './components/contracts/contextContract';
-import Countdown from './components/countdown/countdown';
+import MainCountdown from './components/countdown/mainCountdown';
 import ContractList from './components/contracts/contractList';
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
         setInputDisplay,
       }}
       >
-        <Countdown />
+        <MainCountdown />
         <ContextContract.Provider value={{
           contracts,
           setContracts,

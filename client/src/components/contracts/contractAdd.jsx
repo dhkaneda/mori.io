@@ -30,6 +30,7 @@ const ContractAdd = () => {
       },
       targetDate,
       created: new Date(),
+      activeStatus: true,
     };
 
     const updatedContracts = [...contracts, contractToAdd];

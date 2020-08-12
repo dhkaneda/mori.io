@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import numberWithCommas from './helpers/numberWithCommas';
 
-const CountdownDigitsContainer = ({ targetDate }) => {
+const CountdownDigits = ({ targetDate }) => {
   const [secondsLeft, setSecondsLeft] = useState('loading');
 
   const findSeconds = () => {
@@ -37,4 +37,4 @@ const CountdownDigitsContainer = ({ targetDate }) => {
   );
 };
 
-export default CountdownDigitsContainer;
+export default CountdownDigits;
