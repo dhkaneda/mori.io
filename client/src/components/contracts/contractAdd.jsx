@@ -14,12 +14,10 @@ const ContractAdd = () => {
   // HELPERS
   const handleSubmit = (event) => {
     event.preventDefault();
-    // check for first existing contracts
     let id;
     if (contracts.length === 0) {
       id = 0;
     } else {
-      // increment last existing ID
       id = contracts[contracts.length - 1].id + 1;
     }
 
@@ -49,7 +47,7 @@ const ContractAdd = () => {
 
   // CONDITIONAL ELEMENTS
   // // change select options here
-  const selectOption = (
+  const selectCollateralOption = (
     <input
       type="number"
       name="collateralOption"
@@ -80,11 +78,9 @@ const ContractAdd = () => {
         >
           <option value="invalid">select collateral</option>
           <option value="credits">$$$</option>
-          {/* <option value="avatar">avatar</option> */}
           <option value="life">life</option>
         </select>
-        { /* change line below for different selections based on previous options */ }
-        {collateral === 'credits' ? selectOption : null}
+        {collateral === 'credits' ? selectCollateralOption : null}
         <DatePicker
           selected={targetDate}
           onChange={(date) => setTargetDate(date)}
