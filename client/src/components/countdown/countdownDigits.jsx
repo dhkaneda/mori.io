@@ -23,7 +23,7 @@ const CountdownDigitsContainer = ({ targetDate }) => {
     }, 1000);
   });
 
-  if (secondsLeft < 1) {
+  if (parseInt(secondsLeft, 10) < 1) {
     return (
       <p>
         Forfeit.
