@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import moment from 'moment';
 // import sampleData from '../countdown/sampleData.json';
 import ContractItem from './contractItem';
 import ContextContract from './contextContract';
@@ -23,10 +24,25 @@ const ContractList = () => {
 
   return (
     <div>
-      {contracts && contracts.map((contract) => {
-        return <ContractItem key={contract.id} contract={contract} />;
-      })}
-      {addContractDisplay ? <ContractAdd /> : <button type="button" value="+" onClick={() => setAddContractDisplay(true)}>+</button>}
+      <button>Active</button>
+      <button>Forfeit</button>
+      <section className="flex-container">
+        {contracts && contracts.map((contract) => {
+          let displayedContract;
+          const now = moment();
+
+          if (moment(contract.targetDate).isBefore(now)) {
+            contract.activeStatus = false;
+            localStorage.setItem('contracts', JSON.stringify(contracts));
+            displayedContract = null;
+          } else {
+            displayedContract = <ContractItem key={contract.id} contract={contract} />;
+          }
+
+          return displayedContract;
+        })}
+        {addContractDisplay ? <ContractAdd /> : <button type="button" value="+" onClick={() => setAddContractDisplay(true)}>+</button>}
+      </section>
     </div>
   );
 };

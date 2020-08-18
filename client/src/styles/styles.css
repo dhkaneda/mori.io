@@ -1,0 +1,43 @@
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  margin: 0 auto;
+  max-width: 60em;
+  line-height: 1.5;
+  padding: 4em 1em;
+}
+
+h1 {
+  font-size: xx-large;
+  text-align: end;
+}
+
+.flex-container {
+  margin-top: 1em;
+  padding-top: 1em;
+  display: flex;
+}
+
+.card {
+  position: relative;
+  border: 1px solid #efefef;
+  height: 300px;
+  width: 200px;
+}
+
+.card-content {
+  padding: 30px 30px 110px;
+}
+
+.card-details {
+  text-align: end;
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+}
+
+.card-footer {
+  position: absolute;
+  text-align: end;
+  bottom: 0;
+  right: 20px;
+}

@@ -2,10 +2,10 @@ import React from 'react';
 // import DeathdayInput from './deathdayInput';
 import DeathdayCountdown from './deathdayCountdown';
 
-const Countdown = () => (
+const MainCountdown = () => (
   <div>
     <DeathdayCountdown />
   </div>
 );
 
-export default Countdown;
+export default MainCountdown;

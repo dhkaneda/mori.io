@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 // STYLES
 import './styles/normalize.css';
+import './styles/styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 // COMPONENTS

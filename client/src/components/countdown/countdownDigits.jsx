@@ -24,17 +24,9 @@ const CountdownDigits = ({ targetDate }) => {
   });
 
   if (parseInt(secondsLeft, 10) < 1) {
-    return (
-      <p>
-        Forfeit.
-      </p>
-    );
+    return 'Forfeit.';
   }
-  return (
-    <p>
-      {secondsLeft}
-    </p>
-  );
+  return secondsLeft;
 };
 
 export default CountdownDigits;

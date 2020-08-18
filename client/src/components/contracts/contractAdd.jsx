@@ -69,6 +69,7 @@ const ContractAdd = () => {
             setGoal(target.value);
           }}
         />
+        <br />
         <select
           name="collateral"
           id="collateralSelect"
@@ -81,6 +82,7 @@ const ContractAdd = () => {
           <option value="credits">$$$</option>
           <option value="life">life</option>
         </select>
+        <br />
         {collateral === 'credits' ? selectCollateralOption : null}
         <DatePicker
           selected={targetDate}
@@ -90,7 +92,9 @@ const ContractAdd = () => {
           timeCaption="time"
           dateFormat="MMMM d, yyyy h:mm aa"
         />
+        <br />
         <input type="submit" value="Submit" />
+        <br />
         <button type="button" onClick={() => setAddContractDisplay(false)}>x</button>
       </form>
     </div>
