@@ -43,7 +43,7 @@ const DeathdayInput = () => {
   }, []);
 
   return (
-    <div>
+    <div className="nav">
       <form onSubmit={handleDeathdayInputSubmit}>
         <select name="sex" id="sex" value={sex} onChange={handleInputChange}>
           <option value="male">Male</option>

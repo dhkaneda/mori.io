@@ -20,11 +20,12 @@ const DeathdayCountdown = () => {
   return (
     <div>
       <div onClick={() => setInputDisplay(!inputDisplay)}>
-        <h1>
-          <CountdownDigits targetDate={deathday} />
-        </h1>
+        {inputDisplay ? <DeathdayInput /> : (
+          <h1>
+            <CountdownDigits targetDate={deathday} />
+          </h1>
+        )}
       </div>
-      { inputDisplay && <DeathdayInput />}
     </div>
   );
 };

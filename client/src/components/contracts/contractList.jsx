@@ -47,8 +47,10 @@ const ContractList = () => {
 
   return (
     <div>
-      <button type="button" onClick={() => setListDisplay('Active')}>Active</button>
-      <button type="button" onClick={() => setListDisplay('Forfeit')}>Forfeit</button>
+      <div className="nav">
+        <button type="button" onClick={() => setListDisplay('Active')}>Active</button>
+        <button type="button" onClick={() => setListDisplay('Forfeit')}>Forfeit</button>
+      </div>
       <section className="flex-container">
         {contractList}
       </section>

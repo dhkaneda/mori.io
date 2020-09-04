@@ -61,6 +61,7 @@ const ContractAdd = () => {
 
   return (
     <div>
+      <button type="button" onClick={() => setAddContractDisplay(false)}>x</button>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -95,7 +96,6 @@ const ContractAdd = () => {
         <br />
         <input type="submit" value="Submit" />
         <br />
-        <button type="button" onClick={() => setAddContractDisplay(false)}>x</button>
       </form>
     </div>
   );

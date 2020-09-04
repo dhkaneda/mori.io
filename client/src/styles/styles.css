@@ -11,6 +11,12 @@ h1 {
   text-align: end;
 }
 
+.nav {
+  margin-top: 0.5em;
+  padding-top: 1em;
+  text-align: end;
+}
+
 .flex-container {
   margin-top: 1em;
   padding-top: 1em;
