@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import CountdownDigits from '../countdown/countdownDigits';
 
 const ContractItem = ({ contract, setInactive }) => {
@@ -17,6 +18,9 @@ const ContractItem = ({ contract, setInactive }) => {
             <span>
               {contract.collateral.type === 'credits' ? contract.collateral.collateralOption : null}
             </span>
+          </p>
+          <p>
+            {moment(contract.targetDate).format('MMM DD, YYYY')}
           </p>
         </div>
       </div>
