@@ -26,26 +26,22 @@ const ContractList = () => {
   let contractList;
   if (listDisplay === 'Active') {
     contractList = contracts.map((contract) => {
-      let displayedContract;
       const now = moment();
 
       if (moment(contract.targetDate).isBefore(now) || !contract.activeStatus) {
         contract.activeStatus = false;
         localStorage.setItem('contracts', JSON.stringify(contracts));
-        displayedContract = null;
-      } else {
-        displayedContract = <ContractItem key={contract.id} contract={contract} />;
+        return null;
       }
 
-      return displayedContract;
+      return <ContractItem key={contract.id} contract={contract} />;
     });
+    contractList.push(
+      addContractDisplay ? <ContractAdd /> : <button className="card" type="button" value="+" onClick={() => setAddContractDisplay(true)}>+</button>,
+    );
   } else if (listDisplay === 'Forfeit') {
     contractList = contracts.map((contract) => {
-      let displayedContract;
-      if (!contract.activeStatus) {
-        displayedContract = <ContractItem key={contract.id} contract={contract} />;
-      }
-      return displayedContract;
+      return !contract.activeStatus && <ContractItem key={contract.id} contract={contract} />;
     });
   }
 
@@ -55,7 +51,6 @@ const ContractList = () => {
       <button type="button" onClick={() => setListDisplay('Forfeit')}>Forfeit</button>
       <section className="flex-container">
         {contractList}
-        {addContractDisplay ? <ContractAdd /> : <button type="button" value="+" onClick={() => { setAddContractDisplay(true); setListDisplay('Active'); }}>+</button>}
       </section>
     </div>
   );
