@@ -14,18 +14,21 @@ const DeathdayCountdown = () => {
 
   // continually checks for updated deathday in case input is changed
   useEffect(() => {
-    setDeathday(Date.parse(localStorage.getItem('deathday')));
+    // checks for locally stored deathday upon first visit, otherwise allows
+    // defaulted value from mainCountdown to remain
+    if (localStorage.getItem('deathday')) {
+      setDeathday(Date.parse(localStorage.getItem('deathday')));
+    }
   });
 
   return (
     <div>
       <div onClick={() => setInputDisplay(!inputDisplay)}>
-        {inputDisplay ? <DeathdayInput /> : (
-          <h1>
-            <CountdownDigits targetDate={deathday} />
-          </h1>
-        )}
+        <h1>
+          <CountdownDigits targetDate={deathday} />
+        </h1>
       </div>
+      { inputDisplay && <DeathdayInput />}
     </div>
   );
 };

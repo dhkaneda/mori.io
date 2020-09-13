@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment';
 
 // STYLES
 import './styles/normalize.css';
@@ -16,7 +17,7 @@ const App = () => {
   const [contracts, setContracts] = useState([]);
   const [inputDisplay, setInputDisplay] = useState(false);
   const [addContractDisplay, setAddContractDisplay] = useState(false);
-  const [deathday, setDeathday] = useState('');
+  const [deathday, setDeathday] = useState(moment().add(50, 'years'));
 
   useEffect(() => {
     if (localStorage.getItem('contracts')) {
