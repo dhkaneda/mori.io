@@ -1,4 +1,4 @@
-## Mor.io
+## Mori.io
 ### Memento mori. The time is now.
 
 > A different kind of TODO app - place something on collateral and bet on yourself to fulfil your tasks 
