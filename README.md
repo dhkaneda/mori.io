@@ -1,7 +1,7 @@
 ## Mor.io
 ### Memento mori. The time is now.
 
-> Mor.io is a radicalized to do app in which you can place your source of entertainment, your money, and even your digital life on collateral! You can get more done with your life by allowing what you hold dear to be help hostage from you until your achieve your goals. Make a quick contract with **Death** as he will be your life coach! 
+> A different kind of TODO app - place something on collateral and bet on yourself to fulfil your tasks 
 
 <!-- ## Table of Contents
 
@@ -9,10 +9,6 @@
 1. [Features](#features)
 1. [API](#API) -->
 
-
-## Stack:
-- Frontend: React with Hooks, built with Webpack and Babel
-- Backend: Node.js | Express
 
 ## Status:
 - Currently rebuilding
